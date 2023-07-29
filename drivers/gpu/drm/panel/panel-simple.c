@@ -1645,6 +1645,30 @@ static const struct panel_desc lg_lb070wv8 = {
 	.bus_format = MEDIA_BUS_FMT_RGB888_1X7X4_SPWG,
 };
 
+static const struct drm_display_mode hxr_hxr040wqi_mode = {
+	.clock = 23000,
+	.hdisplay = 480,
+	.hsync_start = 480 + 8,
+	.hsync_end = 480 + 8 + 4,
+	.htotal = 480 + 8 + 4 + 39,
+	.vdisplay = 480,
+	.vsync_start = 480 + 8,
+	.vsync_end = 480 + 8 + 4,
+	.vtotal = 480 + 8 + 4 + 39,
+	.vrefresh = 60,
+};
+
+static const struct panel_desc hxr_hxr040wqi = {
+	.modes = &hxr_hxr040wqi_mode,
+	.num_modes = 1,
+	.bpc = 8,
+	.size = {
+		.width = 70,
+		.height = 70,
+	},
+	.bus_format = MEDIA_BUS_FMT_RGB888_1X24,
+};
+
 static const struct drm_display_mode lg_lp079qx1_sp0v_mode = {
 	.clock = 200000,
 	.hdisplay = 1536,
@@ -2717,6 +2741,9 @@ static const struct of_device_id platform_of_match[] = {
 	}, {
 		.compatible = "lg,lb070wv8",
 		.data = &lg_lb070wv8,
+	}, {
+		.compatible = "hongxiangrui,hxr040wqi",
+		.data = &hxr_hxr040wqi,
 	}, {
 		.compatible = "lg,lp079qx1-sp0v",
 		.data = &lg_lp079qx1_sp0v,
